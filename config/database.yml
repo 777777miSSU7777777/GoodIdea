@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: goodidea_production
-  username: goodidea
-  password: <%= ENV['GOODIDEA_DATABASE_PASSWORD'] %>
+  username: ruby-admin
+  password: 123
