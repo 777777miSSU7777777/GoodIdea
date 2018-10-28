@@ -1,4 +1,7 @@
 # encoding: utf-8
+require 'rubygems'
+require 'mini_magick'
+
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
 

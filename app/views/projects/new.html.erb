@@ -1,0 +1,18 @@
+<% provide(:title, 'New Project') %>
+<h1>New Project</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post, url: projects_new_path ) do |f| %>
+      <%# <%= render 'shared/error_messages' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :content, "Post Content" %>
+      <%= f.cktext_area :content, placeholder: "Please put your content here..." %>
+
+      <%= f.submit "Create project", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

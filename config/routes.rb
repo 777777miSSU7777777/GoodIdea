@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+
   root "static_pages#index"
+
   get '/contacts', to: 'static_pages#contacts'
   get '/about', to: 'static_pages#about'
   
@@ -11,5 +13,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get 'projects/new', to: 'projects#new'
+  post 'projects/new', to: 'projects#create'
+  get 'projects/:id', to: 'projects#show'
+  
   resources :users
+  resources :posts
 end

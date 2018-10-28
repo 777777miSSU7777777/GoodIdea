@@ -72,3 +72,5 @@ gem 'jquery-rails'
 gem 'slim-rails'
 
 gem 'carrierwave'
+
+gem 'mini_magick'
