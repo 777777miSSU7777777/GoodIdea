@@ -15,3 +15,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require ckeditor/init
+//= cktext_area :post, :content, cols: 40
+//= @post.content.html_safe
+
+

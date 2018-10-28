@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#index"
   get '/contacts', to: 'static_pages#contacts'
   get '/about', to: 'static_pages#about'
