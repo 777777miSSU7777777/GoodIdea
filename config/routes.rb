@@ -13,10 +13,14 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'projects/new', to: 'projects#new'
-  post 'projects/new', to: 'projects#create'
-  get 'projects/:id', to: 'projects#show'
+  get '/projects/own', to: 'projects#own'
+  get '/projects', to: 'projects#index'
+  get '/projects/new', to: 'projects#new'
+  post '/projects/new', to: 'projects#create'
+  get '/projects/:id', to: 'projects#show'
   
   resources :users
-  resources :posts
+  resources :posts do 
+    resources :comments
+  end
 end

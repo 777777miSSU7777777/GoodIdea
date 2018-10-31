@@ -1,0 +1,31 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+p.post-title{
+    font-weight: bold;
+    color: white;
+    background: #222;
+    border-radius: 10px;
+}
+
+div.post-content{
+    color: #000000;
+    background: #bbb;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p.comments-existing-title {
+    text-align: left;
+}
+
+div.comments-existing{
+    background: #ffffff;
+}
+div.comment-existing {
+    background: #ccc;
+    align-items: left;
+    padding-bottom: 10px;
+}

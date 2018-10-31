@@ -1,5 +1,50 @@
 <% provide(:title, @post.title) %>
 <div class="center jumbotron">
-    <h1><%= @post.title %><h2>
-    <%=raw @post.content %>
+
+    <div class = "post">
+        <p class= "post-title"><%= @post.title %><p>
+        
+        <div class= "post-content">
+            <%=raw @post.content %>
+        </div>
+
+    </div>
+
+
+
+    <div class="comments-existing">
+        <p class="comments-existing-title">Comments</p>
+
+            <% @post.comments.each do |comment| %>
+                <div class = "comment-existing">
+
+                    <p class="comment-existing-author">
+                        <%= User.find(comment.user_id).name %>
+                    </p>
+        
+                    <p class="comment-existing-content">
+                        <%= comment.content %>
+                    </p>
+
+                </div>
+            <% end %>
+
+    </div>
+
+    <% if logged_in? %>
+        <div class = "comment-form">
+        <p class="comments-adding-title">Add comment:</p>
+        <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+            <p class="comments-adding-content">
+                <%= form.label :content %>
+                <%= form.text_field :content, class: 'form-control' %>
+            </p>
+
+            <p class="comments-adding-submit">
+            <%= form.submit %>
+            </p>
+    
+        <% end %>
+    </div>
+    <% end %>
 </div>
