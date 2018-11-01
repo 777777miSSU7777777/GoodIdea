@@ -14,15 +14,29 @@ class ProjectsController < ApplicationController
   def new
     @post = Post.new
   end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
   
   def create
     @user = current_user
     @post = @user.posts.create(post_params)
     if @post.save
       flash[:success] = "Your project post was created!"
-      redirect_to projects_own_path
+      redirect_to project_path(@post)
     else
       render 'new'
+    end
+  end
+
+  def update 
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to project_path(@post)
+    else 
+      render 'edit'
     end
   end
 

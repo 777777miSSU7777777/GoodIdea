@@ -8,7 +8,7 @@
         <div class= "post-content">
             <%=raw post.content %>
                     <% if post.user_id == current_user.id%>
-                <%= link_to 'Edit', '#' %>
+                <%= link_to 'Edit', edit_project_path(post) %>
         <% end %>
         </div>
 
