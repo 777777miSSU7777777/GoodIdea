@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/projects/:id', to: 'projects#show', as: "project"
   get '/projects/edit/:id', to: 'projects#edit', as: "edit_project"
   post '/projects/edit/:id', to: 'projects#update'
+  delete '/projects/:id', to: "projects#delete"
   
   resources :users
   resources :posts do 

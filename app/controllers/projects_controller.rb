@@ -40,6 +40,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def delete
+    @post =  Post.find(params[:id])
+    @post.destroy
+
+    redirect_to own_projects_path
+  end
+
   private
     def post_params
       params.require(:post).permit(:title,:content)
