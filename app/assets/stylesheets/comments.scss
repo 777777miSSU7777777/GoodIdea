@@ -2,30 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-p.post-title{
-    font-weight: bold;
-    color: white;
-    background: #222;
+div.comments {
+    background: #ffffff;
     border-radius: 10px;
+    box-shadow: 0 0 1em #cccccc;
 }
-
-div.post-content{
-    color: #000000;
-    background: #bbb;
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 p.comments-existing-title {
-    text-align: left;
+    margin-top: 10px;
+    text-align: center;
+    background: #000000;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 div.comments-existing{
     background: #ffffff;
+    border-radius: 10px;
 }
+
 div.comment-existing {
-    background: #ccc;
-    align-items: left;
-    padding-bottom: 10px;
+
+    width: 50%;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #cccccc;
 }
+
+p.comment-existing-author {
+    background: #444444;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+p.comment-existing-content{
+    background: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+div.comment-form{
+    margin: 0 auto;
+}
+
+.comments-adding-content{
+    border-radius: 10px;
+    width: 50%;
+}
+.comments-adding-submit{
+    width: 50%;
+    border-radius: 10px;
+    padding: 2.5px;
+}
+
+

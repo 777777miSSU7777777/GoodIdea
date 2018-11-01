@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @user.comments << @comment
         @post.comments << @comment
-        redirect_to root_path
+        redirect_to project_path(@post)
     end
 
     private 

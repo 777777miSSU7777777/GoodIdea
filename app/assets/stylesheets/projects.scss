@@ -1,3 +1,28 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.post {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #cccccc;
+    margin-bottom: 10px;
+}
+
+p.post-title{
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    background: #222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+div.post-content{
+    color: #000000;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

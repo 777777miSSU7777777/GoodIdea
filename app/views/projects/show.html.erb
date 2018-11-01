@@ -11,40 +11,33 @@
     </div>
 
 
-
-    <div class="comments-existing">
+    <div class="comments">
         <p class="comments-existing-title">Comments</p>
+            <div class="comments-existing">
+                    <% @post.comments.each do |comment| %>
+                        <div class = "comment-existing">
 
-            <% @post.comments.each do |comment| %>
-                <div class = "comment-existing">
+                            <p class="comment-existing-author">
+                                <%= User.find(comment.user_id).name %>
+                            </p>
+                            <p class="comment-existing-content">
+                                <%= comment.content %>
+                            </p>
 
-                    <p class="comment-existing-author">
-                        <%= User.find(comment.user_id).name %>
-                    </p>
-        
-                    <p class="comment-existing-content">
-                        <%= comment.content %>
-                    </p>
+                        </div>
+                    <% end %>
 
+            </div>
+
+            <% if logged_in? %>
+                <div class = "comment-form">
+                <p class="comments-adding-title">Add comment:</p>
+                <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+                    <%= form.text_field :content, :class => 'comments-adding-content' %>
+
+                    <%= form.submit "Comment" , :class => 'comments-adding-submit' %>            
+                <% end %>
                 </div>
             <% end %>
-
     </div>
-
-    <% if logged_in? %>
-        <div class = "comment-form">
-        <p class="comments-adding-title">Add comment:</p>
-        <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-            <p class="comments-adding-content">
-                <%= form.label :content %>
-                <%= form.text_field :content, class: 'form-control' %>
-            </p>
-
-            <p class="comments-adding-submit">
-            <%= form.submit %>
-            </p>
-    
-        <% end %>
-    </div>
-    <% end %>
 </div>
