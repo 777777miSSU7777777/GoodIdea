@@ -4,11 +4,10 @@
     <nav>
       <ul class="nav navbar-nav navbar-left">
       <% if logged_in? %>
-      <li><%= link_to "Start Project", '/projects/new'%></li>
-      <% else %>
+        <li><%= link_to "Start Project", '/projects/new'%></li>
+        <li><%= link_to "Show Your Own Projects", '/projects/own/'%></li>
       <% end %>
-      <li><%= link_to "Show All Projects", '/projects/'%></li>
-      <li><%= link_to "Show Your Own Projects", '/projects/own/'%></li>
+        <li><%= link_to "Show All Projects", '/projects/'%></li>
       </ul>
     </nav>
     <nav>
