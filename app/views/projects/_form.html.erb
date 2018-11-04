@@ -1,0 +1,11 @@
+<%= form_for @post, url: {action: yield(:action)}, :method => :POST  do |f| %>
+    <%# <%= render 'shared/error_messages' %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :content, "Post Content" %>
+    <%= f.cktext_area :content, placeholder: "Please put your content here..." %>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
