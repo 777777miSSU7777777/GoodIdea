@@ -74,3 +74,5 @@ gem 'slim-rails'
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+gem 'faker'

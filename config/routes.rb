@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/profile/edit/:id', to: 'users#edit', as: "edit_profile"
   post '/profile/edit/:id', to: 'users#update'
+  get '/profile/users', to: 'users#index', as: "users"
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
