@@ -10,38 +10,8 @@
 
     </div>
 
+    <%= render 'comments/comments'%>
 
-    <div class="comments">
-        <p class="comments-existing-title">Comments</p>
-            <div class="comments-existing">
-                    <% @post.comments.each do |comment| %>
-                        <div class = "comment-existing">
-
-                            <p class="comment-existing-author">
-                                <%= User.find(comment.user_id).name %>
-                            </p>
-                            <p class="comment-existing-content">
-                                <%= comment.content %>
-                            </p>
-                            <% if logged_in? && (comment.user_id == current_user.id or current_user.id == @post.user_id) %>
-                                <%= link_to 'Delete', [comment.post, comment],
-                                                      method: :delete,
-                                                      data: { confirm: 'Are you sure?' } %>
-                            <% end %>
-                        </div>
-                    <% end %>
-
-            </div>
-
-            <% if logged_in? %>
-                <div class = "comment-form">
-                <p class="comments-adding-title">Add comment:</p>
-                <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-                    <%= form.text_field :content, :class => 'comments-adding-content' %>
-
-                    <%= form.submit "Comment" , :class => 'comments-adding-submit' %>            
-                <% end %>
-                </div>
-            <% end %>
-    </div>
 </div>
+
+

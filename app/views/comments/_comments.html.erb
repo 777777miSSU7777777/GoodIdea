@@ -1,0 +1,12 @@
+<div class="comments">
+        <p class="comments-existing-title">Comments</p>
+            <div class="comments-existing">
+                    <% @post.comments.each do |comment| %>
+                        <%= render 'comments/comment', :comment => comment %>
+                    <% end %>
+            </div>
+            <% if logged_in? %>
+                <%= render 'comments/form' %>
+            <% end %>
+    </div>
+</div>

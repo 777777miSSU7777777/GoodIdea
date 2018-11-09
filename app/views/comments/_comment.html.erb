@@ -1,0 +1,14 @@
+<div class = "comment-existing">
+
+    <p class="comment-existing-author">
+        <%= User.find(comment.user_id).name %>
+    </p>
+    <p class="comment-existing-content">
+        <%= comment.content %>
+    </p>
+    <% if logged_in? && (comment.user_id == current_user.id or current_user.id == @post.user_id) %>
+        <%= link_to 'Delete', [comment.post, comment],
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+    <% end %>
+</div>

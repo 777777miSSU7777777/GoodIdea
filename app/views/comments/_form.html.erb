@@ -1,0 +1,8 @@
+<div class = "comment-form">
+    <p class="comments-adding-title">Add comment:</p>
+        <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+            <%= form.text_field :content, :class => 'comments-adding-content' %>
+
+            <%= form.submit "Comment" , :class => 'comments-adding-submit' %>            
+        <% end %>
+</div>
