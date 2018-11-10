@@ -14,9 +14,20 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
+//= require jquery3
+//= require jquery_ujs
 //= require_tree .
 //= require ckeditor/init
 //= cktext_area :post, :content, cols: 40
 //= @post.content.html_safe
+
+$(document).ready(function() {
+    $('[data-comment-form]').on("ajax:success", function(event, data, status, xhr){
+    //   $('.comments').append(xhr.responseText);
+        var comment = $(xhr.responseTEXT).hide();
+        $('.comments').append(comment);
+        comment.fadeIn(2000);
+    });
+  });
 
 

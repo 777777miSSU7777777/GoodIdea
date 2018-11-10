@@ -5,7 +5,16 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @user.comments << @comment
         @post.comments << @comment
-        redirect_to project_path(@post)
+        if @comment.save
+            # render partial: "comments/comment", locals: {comment: @comment}
+            respond_to do |format|
+                format.js
+                format.html { redirect_to @post }
+            end
+        else
+            render 'projects/show'
+        end
+        # redirect_to project_path(@post)
     end
 
     def destroy
