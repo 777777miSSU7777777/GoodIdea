@@ -102,4 +102,9 @@ class SessionsHelperTest < ActionView::TestCase
         assert_nil current_user
     end
 
+    test 'log_out_test__nobody_logged__fail' do
+        assert_raise do
+            log_out
+        end
+    end
 end
