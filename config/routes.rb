@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  get '/profile/edit/:id', to: 'users#edit', as: "edit_profile"
-  post '/profile/edit/:id', to: 'users#update'
+  get '/profile/user/edit/:id', to: 'users#edit', as: "edit_profile"
+  post '/profile/user/edit/:id', to: 'users#update'
   get '/profile/users', to: 'users#index', as: "users"
+  get '/profile/user/:id', to: 'users#show', as: "user"
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -25,8 +26,4 @@ Rails.application.routes.draw do
   post '/projects/edit/:id', to: 'projects#update'
   delete '/projects/:id', to: "projects#delete"
   
-  resources :users
-  resources :posts do 
-    resources :comments
-  end
 end
