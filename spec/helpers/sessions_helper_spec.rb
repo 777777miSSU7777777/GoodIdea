@@ -57,9 +57,23 @@ RSpec.describe SessionsHelper do
             expect(@user1).to eq current_user
         end
 
+        it 'Login and remember user1 and delete session to check cookie user search -> success' do
+            log_in(@user1)
+            remember(@user1)
+            session.delete(:user_id)
+            expect(@user1).to eq current_user
+        end
+
         it 'Log in user1 and current_user compares with user2 -> fail' do 
             log_in(@user1)
             expect(@user2).not_to eq current_user
+        end
+
+        it 'Log in and remember user1 but delete remember token from cookies to fail cookie user search -> fail' do
+            log_in(@user1)
+            remember(@user1)
+            cookies.delete(:remember_token)
+            expect(@user1).to eq current_user
         end
     end
 
@@ -67,7 +81,7 @@ RSpec.describe SessionsHelper do
         it 'Log in user1 and current_user? compares user1 & user1 -> success' do 
             log_in(@user1)
             expect(true).to eq current_user?(@user1)
-        end
+        end      
 
         it 'Log in user1 and current_user? compares user1 & user2 -> fail' do 
             log_in(@user1)
