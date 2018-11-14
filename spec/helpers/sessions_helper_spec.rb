@@ -69,11 +69,10 @@ RSpec.describe SessionsHelper do
             expect(@user2).not_to eq current_user
         end
 
-        it 'Log in and remember user1 but delete remember token from cookies to fail cookie user search -> fail' do
-            log_in(@user1)
+        it 'Remembers user1 but delete remember token from cookies to fail cookie user search -> fail' do
             remember(@user1)
             cookies.delete(:remember_token)
-            expect(@user1).to eq current_user
+            expect(nil).to eq current_user
         end
     end
 
