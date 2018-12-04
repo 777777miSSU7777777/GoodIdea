@@ -29,6 +29,7 @@ body {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
     line-height: 1;
   }
   
@@ -54,18 +55,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   #logo {
+    font-family: 'Oswald', sans-serif;
     float: left;
+    
     margin-right: 10px;
     font-size: 1.7em;
-    color: #fff;
+    color: #000000;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
     padding-top: 9px;
     font-weight: bold;
   }
   
   #logo:hover {
-    color: #fff;
+    color: #111111;
     text-decoration: none;
   }
 
@@ -179,4 +182,71 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+/* header */
+
+header.navbar {
+  background: #ffffff;
+  border-bottom: 2px inset #000000; 
+}
+
+div.container {
+  width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+.navbar-nav > li > a {
+  color: #000000;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500; 
+  font-size: 18px;
+}
+
+/* Shutter Out Horizontal */
+.hvr-shutter-out-horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  background: #e1e1e1;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-shutter-out-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
+  color: #ffffff;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-shutter-out-horizontal:hover, .hvr-shutter-out-horizontal:focus, .hvr-shutter-out-horizontal:active {
+  color: white;
+  color: #ffffff;
+}
+.hvr-shutter-out-horizontal:hover:before, .hvr-shutter-out-horizontal:focus:before, .hvr-shutter-out-horizontal:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+
 

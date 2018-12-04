@@ -1,13 +1,13 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="container">
     <%= link_to "Good Idea", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-left">
       <% if logged_in? %>
-        <li><%= link_to "Start Project", '/projects/new'%></li>
-        <li><%= link_to "Show Your Own Projects", '/projects/own/'%></li>
+        <li><%= link_to "Start Project", '/projects/new', class: "hvr-shutter-out-horizontal"%></li>
+        <li><%= link_to "Show Your Own Projects", '/projects/own/', class: "hvr-shutter-out-horizontal"%></li>
       <% end %>
-        <li><%= link_to "Show All Projects", '/projects/'%></li>
+        <li><%= link_to "Show All Projects", '/projects/', class: "hvr-shutter-out-horizontal"%></li>
       </ul>
     </nav>
     <nav>
