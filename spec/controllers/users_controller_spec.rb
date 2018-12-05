@@ -68,7 +68,7 @@ RSpec.describe UsersController, :type => :controller do
             expect(response).to redirect_to root_path
         end
 
-        it 'Logged user submit updated profile -> succces' do
+        it 'Logged user submit updated profile -> success' do
             log_in @user1
             post "update", :params => { 
                 :id => 1,
@@ -81,20 +81,7 @@ RSpec.describe UsersController, :type => :controller do
             expect(response).to redirect_to action: "show", id: 1
         end
 
-        it 'Logged user submit updated profile -> succces' do
-            log_in @user1
-            post "update", :params => { 
-                :id => 1,
-                :user => {
-                    :name => 'updated_user',
-                    :email => 'example_user@example.com',
-                    :password => '1234567890'
-            }}
-            
-            expect(response).to redirect_to action: "show", id: 1
-        end
-
-        it 'Logged user submit updated profile of another user -> succces' do
+        it 'Logged user submit updated profile of another user -> fail' do
             log_in @user1
             post "update", :params => { 
                 :id => 2,

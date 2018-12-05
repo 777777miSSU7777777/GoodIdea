@@ -45,7 +45,7 @@ RSpec.describe Comment, :type => :model do
             expect(@comment).not_to be_valid
         end
         
-        it 'Content is les than 30 symbols -> fail' do
+        it 'Content is less than 30 symbols -> fail' do
             @comment.content = 'x' * 20
             expect(@comment).not_to be_valid
         end
