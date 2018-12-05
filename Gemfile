@@ -84,3 +84,5 @@ gem 'bootstrap-will_paginate'
 gem 'rspec'
 
 gem 'rspec-rails'
+
+gem 'rails-controller-testing'
