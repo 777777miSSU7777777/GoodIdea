@@ -48,8 +48,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     color: #777;
   }
-  
   p {
+    
     font-size: 1.1em;
     line-height: 1.7em;
   }
@@ -197,6 +197,7 @@ div.container {
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
 .navbar-nav > li > a {
+  background: #ffffff;
   color: #000000;
   font-family: 'Oswald', sans-serif;
   font-weight: 500; 
