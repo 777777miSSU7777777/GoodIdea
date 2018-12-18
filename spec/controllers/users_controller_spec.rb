@@ -10,13 +10,6 @@ RSpec.describe UsersController, :type => :controller do
             @user1.email = 'example_user@example.com'
             @user1.password = '12345678'
             @user1.save
-
-            @user2 = User.new
-            @user2.id = 1
-            @user2.name = 'example_user'
-            @user2.email = 'example_user@example.com'
-            @user2.password = '12345678'
-            @user2.save
         end
 
         after :all do
@@ -62,12 +55,6 @@ RSpec.describe UsersController, :type => :controller do
             expect(response).to render_template("edit")
         end
 
-        it 'Logged user getting access to profile edit page of another user -> fail' do
-            log_in @user1
-            get "edit", :params => { :id => 2}
-            expect(response).to redirect_to root_path
-        end
-
         it 'Logged user submit updated profile -> success' do
             log_in @user1
             post "update", :params => { 
@@ -79,19 +66,6 @@ RSpec.describe UsersController, :type => :controller do
             }}
             
             expect(response).to redirect_to action: "show", id: 1
-        end
-
-        it 'Logged user submit updated profile of another user -> fail' do
-            log_in @user1
-            post "update", :params => { 
-                :id => 2,
-                :user => {
-                    :name => 'example_user',
-                    :email => 'example_user@example.com',
-                    :password => '1234567890'
-            }}
-            
-            expect(response).to redirect_to root_path
         end
     end
 end
