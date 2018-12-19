@@ -14,8 +14,9 @@ RSpec.describe Post, :type => :model do
     before :each do
         @post = Post.new
         @post.id = 1
-        @post.title = '12345'
-        @post.content = 'x' * 550
+        @post.title = 'x'
+        @post.content = 'x'
+        @post.goal = 1
         @post.user_id = 1
         @post.save
     end
@@ -37,17 +38,12 @@ RSpec.describe Post, :type => :model do
             expect(@post).not_to be_valid  
         end
 
-        it 'Title is less than 5 symbols -> fail' do
+        it 'Title is not black and less than 30 symbols -> true' do
             @post.title = '123'
-            expect(@post).not_to be_valid
-        end
-
-        it 'Title is between 5 and 30 -> success' do
-            @post.title = 'x' * 15
             expect(@post).to be_valid
         end
 
-        it 'Title is more than 30 symbols -> fail' do
+        it 'Title is more than 30 symbols -> false' do
             @post.title = 'x' * 35
             expect(@post).not_to be_valid
         end
@@ -55,24 +51,34 @@ RSpec.describe Post, :type => :model do
 
     describe "#content_validation" do
 
-        it 'Content is blank -> fail' do
+        it 'Content is blank -> false' do
             @post.content = ''
             expect(@post).not_to be_valid
         end
 
-        it 'Content is less than 500 symbols -> fail' do
-            @post.content = 'x' * 300
-            expect(@post).not_to be_valid
-        end
-
-        it 'Content is between 500 and 15000 symbols -> success' do
-            @post.content = 'x' * 5000
+        it 'Content is not blank and less than 15000 symbols -> true' do
+            @post.content = 'x'
             expect(@post).to be_valid
         end
 
-        it 'Content is more than 15000 symbols -> fail' do
-            @post.content = 'x' * 15500
+        it 'Content is more 15000 symbols -> false' do
+            @post.content = 'x' * 16000
             expect(@post).not_to be_valid
+        end
+
+        it 'Goal is less than zero -> false' do
+            @post.goal = -1
+            expect(@post).not_to be_valid
+        end
+
+        it 'Goal is zero -> false' do
+            @post.goal = 0
+            expect(@post).not_to be_valid
+        end
+
+        it 'Goal is more than zero -> false' do
+            @post.goal = 1
+            expect(@post).to be_valid
         end
     end
 end
