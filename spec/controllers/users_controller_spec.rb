@@ -16,16 +16,6 @@ RSpec.describe UsersController, :type => :controller do
             Rails.cache.clear
         end
 
-        it 'Returns index page -> success' do
-            get 'index'
-            expect(response).to render_template("index")  
-        end
-
-        it 'Returns show page -> success' do
-            get 'show', :params => { :id => 1 }
-            expect(response).to render_template("show")
-        end
-
         it 'Returns create page -> success' do
             get 'new'
             expect(response).to render_template("new")
@@ -64,8 +54,7 @@ RSpec.describe UsersController, :type => :controller do
                     :email => 'example_user@example.com',
                     :password => '12345678'
             }}
-            
-            expect(response).to redirect_to action: "show", id: 1
+            expect(response).to redirect_to root_path
         end
     end
 end

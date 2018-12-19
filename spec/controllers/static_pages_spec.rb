@@ -7,11 +7,6 @@ RSpec.describe StaticPagesController, :type => :controller do
             Rails.cache.clear
         end
 
-        it 'Returns index page -> success' do
-            get "index"
-            expect(response).to render_template("index")  
-        end
-
         it 'Returns contacts page -> success' do
             get 'contacts'
             expect(response).to render_template("contacts")
