@@ -1,15 +1,20 @@
-<h1>All projects</h1>
 
-<table>
-        <thead class>
-            <tr>
-                <th class="left-header">Name</th>
-                <th class="right-header">Progress</th>
-            </tr>
-        </thead>    
-        <tbody>
-            <% @post.each do |post| %>
-                <%= render 'project', :post => post%>
-            <% end %>
-        </tbody>
-</table>
+<% if !@post.empty? %>
+    <h1>All projects</h1>
+
+    <table>
+            <thead class>
+                <tr>
+                    <th class="left-header">Name</th>
+                    <th class="right-header">Progress</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <% @post.each do |post| %>
+                    <%= render 'project', :post => post%>
+                <% end %>
+            </tbody>
+    </table>
+<% else %>
+    <h1>There no projects yet</h1>
+<% end %>
