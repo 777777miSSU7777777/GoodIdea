@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post '/projects/edit/:id', to: 'projects#update'
   delete '/projects/:id', to: "projects#delete"
 
+  post '/projects/:post_id', to: 'donations#create'
+
   resources :posts do 
     resources :donations
   end
