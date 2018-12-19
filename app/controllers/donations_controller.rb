@@ -27,6 +27,7 @@ class DonationsController < ApplicationController
         else
             render 'projects/show'
         end
+    end
 
     private 
         def donation_params
