@@ -1,6 +1,6 @@
 <div class = "donation-form">
     <p class="donation-adding-title">Donation form</p>
-        <% donation = post.donations.build%>
+        <% donation = post.donations.build %>
         <%= form_for :donation, remote: true do |form|%>
             <%= form.label :msg, 'Message' %>
             <br/>
