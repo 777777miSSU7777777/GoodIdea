@@ -38,13 +38,13 @@ RSpec.describe Post, :type => :model do
             expect(@post).not_to be_valid  
         end
 
-        it 'Title is not black and less than 30 symbols -> true' do
+        it 'Title is not black and less than 60 symbols -> true' do
             @post.title = '123'
             expect(@post).to be_valid
         end
 
-        it 'Title is more than 30 symbols -> false' do
-            @post.title = 'x' * 35
+        it 'Title is more than 60 symbols -> false' do
+            @post.title = 'x' * 70
             expect(@post).not_to be_valid
         end
     end
