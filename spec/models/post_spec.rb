@@ -33,7 +33,7 @@ RSpec.describe Post, :type => :model do
 
 
     describe "#title_validation" do
-        it 'Title is blank -> fail' do
+        it 'Title is blank -> false' do
             @post.title = ''
             expect(@post).not_to be_valid  
         end
