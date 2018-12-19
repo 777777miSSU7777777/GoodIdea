@@ -8,9 +8,10 @@
             <%=raw @post.content %>
         </div>
 
+        <p class="gather-progress"><%= @post.current %>$ out of <%= @post.goal %>$<p>
     </div>
 
-    <%= render 'comments/comments'%>
+    <%= render 'donations/donations'%>
 
 </div>
 

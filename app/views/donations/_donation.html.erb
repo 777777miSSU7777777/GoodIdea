@@ -1,0 +1,14 @@
+<div class = "donation-existing" id="donation-id-<%=donation.id %>">
+
+    <p class="donation-existing-author">
+        <%= User.find(donation.user_id).name %>
+    </p>
+    <p class="donation-existing-message">
+        <%= donation.msg %>
+    </p>
+    <% if logged_in? && (donation.user_id == current_user.id or current_user.id == @post.user_id) %>
+        <%= link_to 'Delete', [donation.post, donation],
+                                method: :delete,
+                                remote: true %>
+    <% end %>
+</div>

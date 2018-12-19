@@ -1,11 +1,12 @@
-class CommentsController < ApplicationController
+class DonationsController < ApplicationController
     def create 
         @user = current_user
         @post = Post.find(params[:post_id])
-        @comment = Comment.new(comment_params)
-        @user.comments << @comment
-        @post.comments << @comment
-        if @comment.save
+        @donation = Donation.new(donation_params)
+        @user.donations << @donation
+        @post.donations << @donation
+        if @donation.save
+            @post.update(:current => @post.current + @donation.amount)
             respond_to do |format|
                 format.js
                 format.html { redirect_to @post }
@@ -17,8 +18,8 @@ class CommentsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:post_id])
-        @comment = @post.comments.find(params[:id])
-        if @comment.destroy
+        @donation = @post.donations.find(params[:id])
+        if @donation.destroy
             respond_to do |format|
                 format.js
                 format.html {redirect_to @post}
@@ -26,10 +27,9 @@ class CommentsController < ApplicationController
         else
             render 'projects/show'
         end
-    end
-    
+
     private 
-        def comment_params
-            params.require(:comment).permit(:content)
+        def donation_params
+            params.require(:donation).permit(:msg,:amount)
         end
 end

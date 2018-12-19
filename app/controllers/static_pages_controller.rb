@@ -1,8 +1,4 @@
 class StaticPagesController < ApplicationController
-    def index
-        return 'index'
-    end
-
     def contacts
         return 'contacts'
     end

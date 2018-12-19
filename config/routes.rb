@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  root "static_pages#index"
+  root "projects#index"
 
   get '/contacts', to: 'static_pages#contacts'
   get '/about', to: 'static_pages#about'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   delete '/projects/:id', to: "projects#delete"
 
   resources :posts do 
-    resources :comments
+    resources :donations
   end
   
 end

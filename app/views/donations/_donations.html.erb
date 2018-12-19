@@ -1,0 +1,12 @@
+<div class="donations">
+        <p class="donations-existing-title">Donations</p>
+            <div class="donations-existing">
+                    <% @post.donations.each do |donation| %>
+                        <%= render 'donations/donation', :donation => donation %>
+                    <% end %>
+            </div>
+            <% if logged_in? %>
+                <%= render 'donations/form', post: @post%>
+            <% end %>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class = "donation-form">
+    <p class="donation-adding-title">Donation form</p>
+        <%= form_for [post, post.donations.build], remote: true do |form|%>
+            <%= form.label :msg, 'Message' %>
+            <br/>
+            <%= form.text_field :msg, :class => 'donation-adding-message' %>
+            <br/>
+            <%= form.label :amount, 'Amount of money' %>
+            <br/>
+            <%= form.number_field :amount, :class => 'donation-adding-amount'%>
+            <%= form.submit "Donate" , :class => 'donation-adding-submit' %>    
+        <% end %>
+</div>

@@ -1,0 +1,4 @@
+$('.donations-existing').append('<%= j render @donation %>');
+$('.donations-adding-message').val('');
+$('.donations-adding-amounr').val('');
+$('.gather-progress').replaceWith('<p class="gather-progress"><%= @post.current %>$ out of <%= @post.goal %>$<p>')

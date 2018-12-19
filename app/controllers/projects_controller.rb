@@ -3,10 +3,6 @@ class ProjectsController < ApplicationController
     @post = Post.all
   end
 
-  def own
-    @post = Post.where(user_id: current_user.id)
-  end
-
   def show
     @post = Post.find(params[:id])
   end
@@ -22,6 +18,7 @@ class ProjectsController < ApplicationController
   def create
     @user = current_user
     @post = @user.posts.create(post_params)
+    @post.current = 0
     if @post.save
       flash[:success] = "Your project post was created!"
       redirect_to project_path(@post)
@@ -49,7 +46,7 @@ class ProjectsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title,:content)
+      params.require(:post).permit(:title,:content, :goal)
     end
 
 end
