@@ -6,6 +6,11 @@
     <p class="donation-existing-message">
         <%= donation.msg %>
     </p>
+
+    <p class= "donation-existing-amount">
+        <%= donation.amount %>$
+    </p>
+
     <% if logged_in? && (donation.user_id == current_user.id or current_user.id == @post.user_id) %>
         <%= link_to 'Delete', [donation.post, donation],
                                 method: :delete,
