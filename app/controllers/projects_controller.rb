@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     @post =  Post.find(params[:id])
     @post.destroy
 
-    redirect_to own_projects_path
+    redirect_to root_path
   end
 
   private

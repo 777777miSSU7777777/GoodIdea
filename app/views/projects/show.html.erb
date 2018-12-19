@@ -10,6 +10,13 @@
 
         <p class="gather-progress"><%= @post.current %>$ out of <%= @post.goal %>$<p>
     </div>
+    
+    <% if logged_in? && @post.user_id == current_user.id%>
+        <%= link_to 'Edit', edit_project_path(@post) %>
+        <%= link_to 'Delete', project_path(@post), 
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+    <% end %>
 
     <%= render 'donations/donations'%>
 
