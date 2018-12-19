@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   delete '/projects/:id', to: "projects#delete"
 
   post '/projects/:post_id', to: 'donations#create'
+  delete '/projects/:post_id', to: 'donations#destroy'
 
   resources :posts do 
     resources :donations

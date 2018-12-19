@@ -22,6 +22,7 @@ RSpec.describe ProjectsController, type: :controller do
 
         after :each do
             @post.destroy
+            @user1.destroy
         end
 
         after :all do
